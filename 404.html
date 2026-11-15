@@ -13,7 +13,13 @@
 (function () {
   var moved = {
     "dth-hrh": "https://worldhealthorganization.github.io",
-    "who-iris": "https://worldhealthorganization.github.io"
+    "who-iris": "https://worldhealthorganization.github.io",
+    // Inert while litlfred/smart-ra and litlfred/smart-trust-demo still serve
+    // their own Pages: GitHub sends /smart-ra/... to that repo, not here. They
+    // take effect once Pages is turned off on those repos, after the WHO site
+    // is published.
+    "smart-ra": "https://worldhealthorganization.github.io",
+    "smart-trust-demo": "https://worldhealthorganization.github.io"
   };
   var first = location.pathname.split("/")[1];
   var target = moved[first];
