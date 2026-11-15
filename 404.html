@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Moved</title>
+<script>
+// Project sites that moved to another GitHub owner. GitHub does not redirect
+// project Pages after a repository transfer, so this user site's 404 page
+// sends every old address to the same path, query and fragment at the new owner.
+// Add a line here when another repository moves.
+(function () {
+  var moved = {
+    "dth-hrh": "https://worldhealthorganization.github.io",
+    "who-iris": "https://worldhealthorganization.github.io"
+  };
+  var first = location.pathname.split("/")[1];
+  var target = moved[first];
+  if (target) {
+    var url = target + location.pathname + location.search + location.hash;
+    document.documentElement.setAttribute("data-moved", url);
+    location.replace(url);
+  }
+})();
+</script>
+<style>
+  body { font: 16px/1.5 system-ui, sans-serif; max-width: 40rem; margin: 3rem auto; padding: 0 16px; }
+</style>
+</head>
+<body>
+<h1>Page not found</h1>
+<p id="moved" hidden>This page has moved to <a id="moved-link" href="#"></a>.</p>
+<script>
+  var u = document.documentElement.getAttribute("data-moved");
+  if (u) {
+    var a = document.getElementById("moved-link");
+    a.href = u; a.textContent = u;
+    document.getElementById("moved").hidden = false;
+  }
+</script>
+</body>
+</html>
